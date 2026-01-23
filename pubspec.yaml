@@ -1,4 +1,4 @@
-name: flutter_application_1
+name: weather_app_v1
 description: "新しいFlutterプロジェクト"
 # 以下の行は、`flutter pub publish`を使用してパッケージが誤ってpub.devに
 # 公開されることを防ぎます。プライベートパッケージに推奨されます。
