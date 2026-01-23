@@ -26,5 +26,7 @@ linter:
 # このファイルに関する追加情報は以下で確認できます:
 # https://dart.dev/guides/language/analysis-options
 
+# Dartコードフォーマッターの設定セクション。
 formatter:
+  # `末尾のカンマ`の設定。
   trailing_commas: preserve
