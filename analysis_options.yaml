@@ -1,0 +1,32 @@
+# このファイルは、Dartコードを静的に分析してエラー、警告、lintをチェックする
+# アナライザーを設定します。
+#
+# アナライザーによって識別された問題は、Dart対応IDEのUIに表示されます
+# (https://dart.dev/tools#ides-and-editors)。アナライザーは
+# `flutter analyze`を実行することでコマンドラインからも呼び出すことができます。
+
+# 以下の行は、優れたコーディング手法を推奨するために設計された
+# Flutterアプリ、パッケージ、プラグインに推奨されるlintのセットを有効化します。
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  # このプロジェクトに適用されるlintルールは、以下のセクションでカスタマイズして、
+  # 上記でインクルードされた`package:flutter_lints/flutter.yaml`のルールを無効化したり、
+  # 追加のルールを有効化したりできます。利用可能なすべてのlintとそのドキュメントの
+  # リストは https://dart.dev/lints で公開されています。
+  #
+  # 以下のセクションでプロジェクト全体に対してlintルールを無効化する代わりに、
+  # lintを生成している行またはファイルで`// ignore: name_of_lint`および
+  # `// ignore_for_file: name_of_lint`構文を使用して、1行のコードまたは
+  # 特定のdartファイルに対して抑制することもできます。
+  rules:
+    # avoid_print: false  # `avoid_print`ルールを無効化するにはコメントを解除
+    # prefer_single_quotes: true  # `prefer_single_quotes`ルールを有効化するにはコメントを解除
+
+# このファイルに関する追加情報は以下で確認できます:
+# https://dart.dev/guides/language/analysis-options
+
+# Dartコードフォーマッターの設定セクション。
+formatter:
+  # `末尾のカンマ`の設定。
+  trailing_commas: preserve
