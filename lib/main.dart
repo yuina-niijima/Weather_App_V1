@@ -25,10 +25,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _init() async {
-    // ★ ここで「2秒間」待機します
+    // ★ ここで「2秒間」待機
     await Future.delayed(const Duration(seconds: 2));
 
-    // 3. 2秒経ったらスプラッシュを消して、アプリ画面を表示する
+    // 2秒経ったらスプラッシュを消して、アプリ画面を表示する
     FlutterNativeSplash.remove();
   }
 

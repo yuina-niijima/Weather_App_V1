@@ -45,7 +45,6 @@ dev_dependencies:
   # 特定のlintルールを無効化したり、追加のルールを有効化する方法については、
   # そのファイルを参照してください。
   flutter_lints: ^6.0.0
-  flutter_native_splash: ^2.4.7
 
 # このファイルの一般的なDart部分に関する情報については、
 # 以下のページを参照してください: https://dart.dev/tools/pub/pubspec
