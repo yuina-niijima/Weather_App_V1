@@ -87,3 +87,13 @@ flutter:
 
 assets:
     - assets/splash.png
+
+flutter_native_splash:
+  color: "#ffffff" # 背景色（白の場合）
+  image: assets/splash.png # 画像のパス
+  
+  # Android 12以降のための必須設定
+  android_12:
+    image: assets/splash.png
+    color: "#FF5733"
+    icon_background_color: "#ffffff"

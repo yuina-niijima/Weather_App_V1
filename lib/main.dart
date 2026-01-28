@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//スプラッシュ画面のパッケージ
+//スプラッシュ画面
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
