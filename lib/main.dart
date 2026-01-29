@@ -24,11 +24,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    _init(); // ここでスプラッシュを制御する関数を呼ぶ
+    _dismissSplashScreen(); // ここでスプラッシュを制御する関数を呼ぶ
   }
 
   // スプラッシュ関数をいつ消すかの関数
-  void _init() async {
+  void _dismissSplashScreen() async {
     // ここで「2秒間」待機
     await Future.delayed(const Duration(seconds: 2));
 
