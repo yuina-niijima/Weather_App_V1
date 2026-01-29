@@ -39,10 +39,18 @@ class _MyAppState extends State<MyApp> {
   // メイン画面
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
+        //ヘッダー
+        appBar: AppBar(
+          title: const Text('お天気アプリ'), // 表示する文字
+          centerTitle: true, // 中央寄せ
+          backgroundColor: Colors.blue, // 背景色を青に
+          foregroundColor: Colors.white, //文字色白に
+        ),
+
         body: Center(
-          child: Text('Hello World!'),
+          child: Text('Hello,World'),
         ),
       ),
     );
