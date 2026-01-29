@@ -41,27 +41,68 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        //ヘッダー
         appBar: AppBar(
-          title: const Text('お天気アプリ'), // 表示する文字
-          centerTitle: true, // 中央寄せ
-          backgroundColor: Colors.blue, // 背景色を青に
-          foregroundColor: Colors.white, //文字色白に
+          title: const Text('お天気アプリ'),
+          centerTitle: true,
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
         ),
-        body: Column(
-          children: [
-            const SizedBox(height: 20),
-            // 画像を表示
-            Image.asset(
-              'assets/MainWeather.png',
-              height: 200,
-              width: 200,
-            ),
-            const SizedBox(height: 20),
-            const Center(
-              child: Text('Hello World!'),
-            ),
-          ],
+        // 1. 画面全体の余白を Padding ウィジェットで設定
+        body: Padding(
+          padding: const EdgeInsets.all(24.0), // 上下左右すべてに24の余白
+          child: Column(
+            // ボタンを横いっぱいに広げる設定
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 20),
+
+              // 画像
+              Image.asset(
+                'assets/MainWeather.png',
+                height: 200,
+              ),
+
+              const SizedBox(height: 40),
+
+              // 2. ボタンを Padding ウィジェットで包んで、下のボタンとの間隔を作る
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16.0), // 下だけに16の余白
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 20,
+                    ), // ボタン内の厚み
+                  ),
+                  child: const Text(
+                    '都道府県を選択',
+                    style: TextStyle(
+                      fontSize: 22, // 少し大きく
+                      fontWeight: FontWeight.bold, // 太字で「いい感じ」に
+                    ),
+                  ),
+                ),
+              ),
+
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                ),
+                child: const Text(
+                  '現在地の天気予報を見る',
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
