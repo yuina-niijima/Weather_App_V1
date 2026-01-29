@@ -62,9 +62,8 @@ class _MyAppState extends State<MyApp> {
                 height: 200,
               ),
 
-              const SizedBox(height: 40),
-
-              // 2. ボタンを Padding ウィジェットで包んで、下のボタンとの間隔を作る
+              const SizedBox(height: 50),
+              //paddingで全体の余白設定
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0), // 下だけに16の余白
                 child: ElevatedButton(
@@ -73,18 +72,20 @@ class _MyAppState extends State<MyApp> {
                     backgroundColor: Colors.orange,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
-                      vertical: 20,
+                      vertical: 20, // 上下（垂直方向）に 20 ピクセル分の余白を作る
                     ), // ボタン内の厚み
                   ),
                   child: const Text(
                     '都道府県を選択',
                     style: TextStyle(
-                      fontSize: 22, // 少し大きく
-                      fontWeight: FontWeight.bold, // 太字で「いい感じ」に
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold, // 太字
                     ),
                   ),
                 ),
               ),
+
+              const SizedBox(height: 30),
 
               ElevatedButton(
                 onPressed: () {},
