@@ -33,6 +33,7 @@ dependencies:
   # 以下は、CupertinoIconsフォントをアプリケーションに追加します。
   # iOSスタイルのアイコンにはCupertinoIconsクラスと共に使用します。
   cupertino_icons: ^1.0.8
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -83,3 +84,8 @@ flutter:
   #
   # パッケージ依存関係からのフォントに関する詳細については、
   # https://flutter.dev/to/font-from-package を参照してください
+
+# スプラッシュ画面のみに使用する場合不要。メイン画面などに使用するなら必要
+#assets:
+#    - assets/splash.png
+
