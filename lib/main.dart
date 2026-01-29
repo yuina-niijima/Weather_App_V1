@@ -36,7 +36,19 @@ class _MyAppState extends State<MyApp> {
     FlutterNativeSplash.remove();
   }
 
-  // メイン画面
+  // 読みやすくするためにメイン画面を別クラスに分ける
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MainHomePage(),
+    );
+  }
+}
+
+// メイン画面のクラス
+class MainHomePage extends StatelessWidget {
+  const MainHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,18 +61,13 @@ class _MyAppState extends State<MyApp> {
         ),
         // 1. 画面全体の余白を Padding ウィジェットで設定
         body: Padding(
-          padding: const EdgeInsets.all(24.0), // 上下左右すべてに24の余白
+          padding: const EdgeInsets.all(24.0),
           child: Column(
-            // ボタンを横いっぱいに広げる設定
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const SizedBox(height: 20),
-
-              // 画像
-              Image.asset(
-                'assets/MainWeather.png',
-                height: 200,
-              ),
+              Image.asset('assets/MainWeather.png', height: 200),
+              const SizedBox(height: 50),
 
               const SizedBox(height: 50),
               //paddingで全体の余白設定
