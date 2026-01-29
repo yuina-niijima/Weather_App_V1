@@ -48,9 +48,20 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.blue, // 背景色を青に
           foregroundColor: Colors.white, //文字色白に
         ),
-
-        body: Center(
-          child: Text('Hello,World'),
+        body: Column(
+          children: [
+            const SizedBox(height: 20),
+            // 画像を表示
+            Image.asset(
+              'assets/MainWeather.png',
+              height: 200,
+              width: 200,
+            ),
+            const SizedBox(height: 20),
+            const Center(
+              child: Text('Hello World!'),
+            ),
+          ],
         ),
       ),
     );

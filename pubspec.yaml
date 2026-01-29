@@ -54,6 +54,9 @@ flutter:
   # 以下の行は、Material Iconsフォントがアプリケーションに含まれることを保証し、
   # material Iconsクラスのアイコンを使用できるようにします。
   uses-material-design: true
+# 画像追加
+  assets:
+    - assets/MainWeather.png
 
   # アプリケーションにアセットを追加するには、次のようにassetsセクションを追加します:
   # assets:
