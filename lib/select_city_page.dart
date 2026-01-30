@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_v1/main.dart';
 import 'package:weather_app_v1/prefectures.dart';
+import 'package:weather_app_v1/weather_detail_page.dart';
 
 class SelectCityPage extends StatelessWidget {
   const SelectCityPage({super.key});
@@ -24,6 +24,46 @@ class SelectCityPage extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class ListCell extends StatelessWidget {
+  const ListCell({
+    super.key,
+    required this.prefecture,
+  });
+
+  final String prefecture;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white,
+        // 文字色
+        foregroundColor: const Color.fromARGB(255, 5, 40, 57),
+        elevation: 5, // 影の深さ
+        shadowColor: Colors.indigo, // 影の色
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => WeatherDetailPage(
+              cityName: prefecture,
+            ),
+            fullscreenDialog: true, // true だとモーダル遷移になる
+          ),
+        );
+      },
+      child: Text(
+        prefecture,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
