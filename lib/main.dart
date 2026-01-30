@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 //スプラッシュ画面
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:weather_app_v1/main_home_page.dart';
-import 'package:weather_app_v1/prefectures.dart';
 import 'package:weather_app_v1/weather_detail_page.dart';
 
 void main() {
