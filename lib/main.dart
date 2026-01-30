@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 //スプラッシュ画面
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:weather_app_v1/main_home_page.dart';
-import 'package:weather_app_v1/weather_detail_page.dart';
 
 void main() {
   // バインディングの初期化(定型文)
@@ -43,46 +42,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MainHomePage(),
-    );
-  }
-}
-
-class ListCell extends StatelessWidget {
-  const ListCell({
-    super.key,
-    required this.prefecture,
-  });
-
-  final String prefecture;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
-        // 文字色
-        foregroundColor: const Color.fromARGB(255, 5, 40, 57),
-        elevation: 5, // 影の深さ
-        shadowColor: Colors.indigo, // 影の色
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (_) => WeatherDetailPage(
-              cityName: prefecture,
-            ),
-            fullscreenDialog: true, // true だとモーダル遷移になる
-          ),
-        );
-      },
-      child: Text(
-        prefecture,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
     );
   }
 }
