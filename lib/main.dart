@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //スプラッシュ画面
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:weather_app_v1/main_home_page.dart';
+import 'package:weather_app_v1/weather_detail_page.dart';
 
 void main() {
   // バインディングの初期化(定型文)
@@ -30,6 +31,7 @@ class _MyAppState extends State<MyApp> {
 
   // スプラッシュ関数をいつ消すかの関数
   void _dismissSplashScreen() async {
+    debugPrint(AppConfig.apiKey);
     // ここで「2秒間」待機
     await Future.delayed(const Duration(seconds: 2));
 
