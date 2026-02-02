@@ -124,3 +124,10 @@ flutter test
 ## サポート
 
 問題が発生した場合は、プロジェクトのメンテナーにお問い合わせください。
+
+## API使用手順
+.envファイルを作成して、`API_KEY=XXXX(各自のAPIキー)`を書いてください。
+`flutter run --dart-define-from-file=.env`で実行してください。
+
+
+
