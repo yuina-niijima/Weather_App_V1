@@ -63,7 +63,7 @@ class WeatherDetailPage extends StatelessWidget {
         future: fetchWeather(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return loadingView();
+            return _loadingView();
           }
           if (snapshot.hasError) {
             showErrorDialog(context, snapshot.error.toString());
@@ -74,66 +74,66 @@ class WeatherDetailPage extends StatelessWidget {
             return const Center(child: Text('データが見つかりませんでした'));
           }
 
-          return weatherContent(weather);
+          return _weatherContent(weather);
         },
       ),
     );
   }
-}
 
-Widget weatherContent(WeatherData weather) {
-  return Center(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          DateFormat('yyyy/MM/dd HH:mm').format(weather.date),
-          style: const TextStyle(fontSize: 18),
-        ),
-        const SizedBox(height: 10),
-        Text(
-          weather.cityName,
-          style: const TextStyle(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
+  Widget _weatherContent(WeatherData weather) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            DateFormat('yyyy/MM/dd HH:mm').format(weather.date),
+            style: const TextStyle(fontSize: 18),
           ),
-        ),
-        Image.network(
-          'https://openweathermap.org/img/wn/${weather.icon}@2x.png',
-        ),
-        Text(weather.description, style: const TextStyle(fontSize: 24)),
-        const SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              '最高: ${weather.tempMax.toStringAsFixed(1)}℃',
-              style: const TextStyle(color: Colors.red),
+          const SizedBox(height: 10),
+          Text(
+            weather.cityName,
+            style: const TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
             ),
-            const SizedBox(width: 20),
-            Text(
-              '最低: ${weather.tempMin.toStringAsFixed(1)}℃',
-              style: const TextStyle(color: Colors.blue),
-            ),
-          ],
-        ),
-        const SizedBox(height: 10),
-        Text('湿度: ${weather.humidity}%'),
-      ],
-    ),
-  );
-}
+          ),
+          Image.network(
+            'https://openweathermap.org/img/wn/${weather.icon}@2x.png',
+          ),
+          Text(weather.description, style: const TextStyle(fontSize: 24)),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                '最高: ${weather.tempMax.toStringAsFixed(1)}℃',
+                style: const TextStyle(color: Colors.red),
+              ),
+              const SizedBox(width: 20),
+              Text(
+                '最低: ${weather.tempMin.toStringAsFixed(1)}℃',
+                style: const TextStyle(color: Colors.blue),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text('湿度: ${weather.humidity}%'),
+        ],
+      ),
+    );
+  }
 
-Widget loadingView() {
-  return Stack(
-    children: [
-      const ModalBarrier(
-        dismissible: false, // 壁をタップしても消えないようにする
-        color: Colors.black12,
-      ),
-      const Center(
-        child: CircularProgressIndicator(), // くるくる回るインジケーター
-      ),
-    ],
-  );
+  Widget _loadingView() {
+    return Stack(
+      children: [
+        const ModalBarrier(
+          dismissible: false, // 壁をタップしても消えないようにする
+          color: Colors.black12,
+        ),
+        const Center(
+          child: CircularProgressIndicator(), // くるくる回るインジケーター
+        ),
+      ],
+    );
+  }
 }
