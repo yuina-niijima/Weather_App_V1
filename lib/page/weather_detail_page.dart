@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -74,50 +73,55 @@ class WeatherDetailPage extends StatelessWidget {
           if (weather == null) {
             return const Center(child: Text('データが見つかりませんでした'));
           }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  DateFormat('yyyy/MM/dd HH:mm').format(weather.date),
-                  style: const TextStyle(fontSize: 18),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  weather.cityName,
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Image.network(
-                  'https://openweathermap.org/img/wn/${weather.icon}@2x.png',
-                ),
-                Text(weather.description, style: const TextStyle(fontSize: 24)),
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '最高: ${weather.tempMax.toStringAsFixed(1)}℃',
-                      style: const TextStyle(color: Colors.red),
-                    ),
-                    const SizedBox(width: 20),
-                    Text(
-                      '最低: ${weather.tempMin.toStringAsFixed(1)}℃',
-                      style: const TextStyle(color: Colors.blue),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-                Text('湿度: ${weather.humidity}%'),
-              ],
-            ),
-          );
+
+          return weatherContent(weather);
         },
       ),
     );
   }
+}
+
+Widget weatherContent(WeatherData weather) {
+  return Center(
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          DateFormat('yyyy/MM/dd HH:mm').format(weather.date),
+          style: const TextStyle(fontSize: 18),
+        ),
+        const SizedBox(height: 10),
+        Text(
+          weather.cityName,
+          style: const TextStyle(
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Image.network(
+          'https://openweathermap.org/img/wn/${weather.icon}@2x.png',
+        ),
+        Text(weather.description, style: const TextStyle(fontSize: 24)),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '最高: ${weather.tempMax.toStringAsFixed(1)}℃',
+              style: const TextStyle(color: Colors.red),
+            ),
+            const SizedBox(width: 20),
+            Text(
+              '最低: ${weather.tempMin.toStringAsFixed(1)}℃',
+              style: const TextStyle(color: Colors.blue),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Text('湿度: ${weather.humidity}%'),
+      ],
+    ),
+  );
 }
 
 Widget loadingView() {
