@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_v1/prefectures.dart';
-import 'package:weather_app_v1/weather_detail_page.dart';
+import 'package:weather_app_v1/constant/prefectures.dart';
+import 'package:weather_app_v1/page/weather_detail_page.dart';
 
 class SelectCityPage extends StatelessWidget {
   const SelectCityPage({super.key});

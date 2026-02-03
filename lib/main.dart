@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //スプラッシュ画面
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:weather_app_v1/main_home_page.dart';
+import 'package:weather_app_v1/page/main_home_page.dart';
 
 void main() {
   // バインディングの初期化(定型文)
