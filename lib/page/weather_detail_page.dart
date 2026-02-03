@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
@@ -17,15 +18,20 @@ class WeatherDetailPage extends StatelessWidget {
   // APIからデータを取ってくる関数
   Future<WeatherData> fetchWeather() async {
     // インジケーターを確認するため三秒待機
-    await Future.delayed(const Duration(seconds: 3));
-    final url =
-        'https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=${AppConfig.apiKey}&units=metric&lang=ja';
-    final response = await http.get(Uri.parse(url));
+    try {
+      await Future.delayed(const Duration(seconds: 3));
+      final url =
+          'https://api.openweathermap.org/data/2.5/weather?q=$cityName&appid=${AppConfig.apiKey}&units=metric&lang=ja';
+      final response = await http.get(Uri.parse(url));
 
-    if (response.statusCode == 200) {
-      return WeatherData.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception('データの取得に失敗しました');
+      if (response.statusCode == 200) {
+        return WeatherData.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception('データの取得に失敗しました');
+      }
+    } //ネット接続用のエラー
+    on SocketException {
+      throw 'インターネットに接続されていません。接続状況を確認してください。';
     }
   }
 
