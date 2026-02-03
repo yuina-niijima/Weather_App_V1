@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app_v1/page/current_weather_page.dart';
+import 'package:weather_app_v1/current_weather_page.dart';
 import 'package:weather_app_v1/page/select_city_page.dart';
 
 class MainHomePage extends StatelessWidget {
