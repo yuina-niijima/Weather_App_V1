@@ -64,17 +64,7 @@ class WeatherDetailPage extends StatelessWidget {
         future: fetchWeather(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Stack(
-              children: [
-                const ModalBarrier(
-                  dismissible: false, // 壁をタップしても消えないようにする
-                  color: Colors.black12,
-                ),
-                const Center(
-                  child: CircularProgressIndicator(), // くるくる回るインジケーター
-                ),
-              ],
-            );
+            return loadingView();
           }
           if (snapshot.hasError) {
             showErrorDialog(context, snapshot.error.toString());
@@ -128,4 +118,18 @@ class WeatherDetailPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget loadingView() {
+  return Stack(
+    children: [
+      const ModalBarrier(
+        dismissible: false, // 壁をタップしても消えないようにする
+        color: Colors.black12,
+      ),
+      const Center(
+        child: CircularProgressIndicator(), // くるくる回るインジケーター
+      ),
+    ],
+  );
 }
