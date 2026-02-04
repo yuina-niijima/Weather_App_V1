@@ -77,7 +77,7 @@ class WeatherDetailPage extends StatelessWidget {
           }
           final weather = snapshot.data;
           if (weather == null) {
-            return const Center(child: Text('データが見つかりませんでした'));
+            return SizedBox.shrink();
           }
 
           return _weatherContent(weather);
