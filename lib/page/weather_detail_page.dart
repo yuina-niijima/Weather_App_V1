@@ -47,8 +47,7 @@ class WeatherDetailPage extends StatelessWidget {
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // ダイアログを閉じる
-                  Navigator.of(context).pop(); // 前の画面（一覧など）に戻る
+                  Navigator.of(context).popUntil((route) => route.isFirst);
                 },
                 child: const Text('戻る'),
               ),
