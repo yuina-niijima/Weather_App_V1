@@ -30,7 +30,7 @@ class WeatherDetailPage extends StatelessWidget {
       }
     } //ネット接続用のエラー
     on SocketException {
-      throw 'インターネットに接続されていません。接続状況を確認してください。';
+      throw Exception('インターネットに接続されていません。接続状況を確認してください。');
     } catch (e) {
       rethrow;
     }
