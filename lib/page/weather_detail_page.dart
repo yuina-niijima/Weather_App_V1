@@ -8,7 +8,6 @@ import 'package:weather_app_v1/model/weather_data.dart';
 
 class WeatherDetailPage extends StatelessWidget {
   final String cityName;
-  final String? apiKey = String.fromEnvironment('API_KEY');
 
   WeatherDetailPage({
     super.key,
