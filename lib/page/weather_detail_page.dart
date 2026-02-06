@@ -47,6 +47,9 @@ class WeatherDetailPage extends StatelessWidget {
             actions: [
               TextButton(
                 onPressed: () {
+                  // popUntil：〜するまで（Until）、画面を閉じ続ける（pop）」
+                  // (route) => ...: 積み重なっている画面（ルート）を一枚ずつチェックする条件式
+                  // route.isFirst: その画面が「スタックの一番最初（アプリを起動して最初に表示した画面）」かどうかを判定するプロパティ
                   Navigator.of(context).popUntil((route) => route.isFirst);
                 },
                 child: const Text('戻る'),
