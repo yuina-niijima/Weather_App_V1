@@ -31,13 +31,15 @@ class WeatherDetailPage extends StatelessWidget {
     } //ネット接続用のエラー
     on SocketException {
       throw 'インターネットに接続されていません。接続状況を確認してください。';
+    } catch (e) {
+      rethrow;
     }
   }
 
   void showErrorDialog(BuildContext context, String message) {
     // ビルドが終わった後に実行されるように予約する
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      showDialog(
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await showDialog(
         context: context,
         barrierDismissible: false, // ダイアログ外タップで閉じないようにする
         builder: (context) {
@@ -47,10 +49,7 @@ class WeatherDetailPage extends StatelessWidget {
             actions: [
               TextButton(
                 onPressed: () {
-                  // popUntil：〜するまで（Until）、画面を閉じ続ける（pop）」
-                  // (route) => ...: 積み重なっている画面（ルート）を一枚ずつチェックする条件式
-                  // route.isFirst: その画面が「スタックの一番最初（アプリを起動して最初に表示した画面）」かどうかを判定するプロパティ
-                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  Navigator.of(context).pop(); // ダイアログを閉じる
                 },
                 child: const Text('戻る'),
               ),
@@ -58,6 +57,9 @@ class WeatherDetailPage extends StatelessWidget {
           );
         },
       );
+      if (context.mounted) {
+        Navigator.of(context).pop();
+      }
     });
   }
 
