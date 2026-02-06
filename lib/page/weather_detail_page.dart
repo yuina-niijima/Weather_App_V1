@@ -9,7 +9,7 @@ import 'package:weather_app_v1/model/weather_data.dart';
 class WeatherDetailPage extends StatelessWidget {
   final String cityName;
 
-  WeatherDetailPage({
+  const WeatherDetailPage({
     super.key,
     required this.cityName,
   });
