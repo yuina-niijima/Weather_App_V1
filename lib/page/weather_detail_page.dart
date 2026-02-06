@@ -42,14 +42,14 @@ class WeatherDetailPage extends StatelessWidget {
       await showDialog(
         context: context,
         barrierDismissible: false, // ダイアログ外タップで閉じないようにする
-        builder: (context) {
+        builder: (dialogContext) {
           return AlertDialog(
             title: const Text('エラー'),
             content: Text(message),
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pop(); // ダイアログを閉じる
+                  Navigator.of(dialogContext).pop(); // ダイアログを閉じる
                 },
                 child: const Text('戻る'),
               ),
